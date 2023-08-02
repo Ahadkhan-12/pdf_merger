@@ -5,9 +5,9 @@ var merger = new PDFMerger();
 const mergePdfs = async (p1,p2) => {
   await merger.add(p1);
   await merger.add(p2);  
-
-  await merger.save('public/merged.pdf'); 
-  
+  let d = new Date().getTime();
+  await merger.save(`public/${d}.pdf`); 
+  return d;
   // Export the merged PDF as a nodejs Buffer
   // const mergedPdfBuffer = await merger.saveAsBuffer();
   // fs.writeSync('merged.pdf', mergedPdfBuffer);
